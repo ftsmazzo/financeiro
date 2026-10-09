@@ -42,7 +42,7 @@ function AuthPage() {
     } else {
       const { error } = await supabase.auth.signUp({ email, password: senha, options: { emailRedirectTo: window.location.origin } });
       if (error) setErro(error.message);
-      else setMsg("Conta criada. Confira seu e-mail para confirmar o cadastro.");
+      else navigate({ to: "/" });
     }
     setCarregando(false);
   }
